@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="SAM_CONFIG" EntityType="Model.Store.SAM_CONFIG" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_DATA_C" EntityType="Model.Store.SAM_DATA_C" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_DATA_D" EntityType="Model.Store.SAM_DATA_D" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_DATA_S" EntityType="Model.Store.SAM_DATA_S" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_GROUP" EntityType="Model.Store.SAM_GROUP" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_LOG" EntityType="Model.Store.SAM_LOG" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_PRMS" EntityType="Model.Store.SAM_PRMS" store:Type="Tables" Schema="NMSWEB" />
+          <EntitySet Name="SAM_USER" EntityType="Model.Store.SAM_USER" store:Type="Tables" Schema="NMSWEB" />
+          <AssociationSet Name="SAM_USER_FK01" Association="Model.Store.SAM_USER_FK01">
+            <End Role="SAM_GROUP" EntitySet="SAM_GROUP" />
+            <End Role="SAM_USER" EntitySet="SAM_USER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SAM_CONFIG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="LOCATION" Type="varchar2" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SAM_DATA_C">
+          <Key>
+            <PropertyRef Name="DT_UNX" />
+            <PropertyRef Name="ADR_SOURCE" />
+            <PropertyRef Name="ADR_TARGET" />
+          </Key>
+          <Property Name="DT_WIN" Type="date" />
+          <Property Name="DT_UNX" Type="number" Nullable="false" Precision="20" />
+          <Property Name="ADR_SOURCE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="ADR_TARGET" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="TRF_TOTAL" Type="number" Precision="20" />
+          <Property Name="TRF_DELTA" Type="number" Precision="20" />
+        </EntityType>
+        <EntityType Name="SAM_DATA_D">
+          <Key>
+            <PropertyRef Name="DT_UNX" />
+            <PropertyRef Name="ADR_SOURCE" />
+            <PropertyRef Name="ADR_TARGET" />
+          </Key>
+          <Property Name="DT_WIN" Type="date" />
+          <Property Name="DT_UNX" Type="number" Nullable="false" Precision="20" />
+          <Property Name="ADR_SOURCE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="ADR_TARGET" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="TRF_TOTAL" Type="number" Precision="20" />
+          <Property Name="TRF_DELTA" Type="number" Precision="20" />
+        </EntityType>
+        <EntityType Name="SAM_DATA_S">
+          <Key>
+            <PropertyRef Name="DT_UNX" />
+            <PropertyRef Name="ADR_SOURCE" />
+            <PropertyRef Name="ADR_TARGET" />
+          </Key>
+          <Property Name="DT_WIN" Type="date" />
+          <Property Name="DT_UNX" Type="number" Nullable="false" Precision="20" />
+          <Property Name="ADR_SOURCE" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="ADR_TARGET" Type="varchar2" Nullable="false" MaxLength="100" />
+          <Property Name="TRF_TOTAL" Type="number" Precision="20" />
+          <Property Name="TRF_DELTA" Type="number" Precision="20" />
+        </EntityType>
+        <EntityType Name="SAM_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="varchar2" MaxLength="200" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="200" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="200" />
+          <Property Name="ACTIVE" Type="varchar2" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SAM_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DT_PERIOD1" Type="varchar2" MaxLength="100" />
+          <Property Name="DT_PERIOD2" Type="varchar2" MaxLength="100" />
+          <Property Name="DT_ELAPSED" Type="number" />
+          <Property Name="SAM_FILENAME" Type="varchar2" MaxLength="200" />
+          <Property Name="COUNT_RAW" Type="number" />
+          <Property Name="COUNT_PRC" Type="number" />
+          <Property Name="COUNT_S" Type="number" />
+          <Property Name="COUNT_C" Type="number" />
+          <Property Name="COUNT_D" Type="number" />
+          <Property Name="LOG_DATETIME" Type="varchar2" MaxLength="100" />
+          <Property Name="LOG_USERNAME" Type="varchar2" MaxLength="100" />
+          <Property Name="LOG_FULLTEXT" Type="varchar2" />
+          <Property Name="STATUS" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SAM_PRMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="VALUE" Type="varchar2" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SAM_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="100" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="100" />
+          <Property Name="FULLNAME" Type="varchar2" MaxLength="100" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="100" />
+          <Property Name="PHONE" Type="varchar2" MaxLength="100" />
+          <Property Name="GROUPID" Type="number" />
+          <Property Name="ADMIN" Type="char" MaxLength="1" />
+          <Property Name="ACTIVE" Type="char" MaxLength="1" />
+        </EntityType>
+        <Association Name="SAM_USER_FK01">
+          <End Role="SAM_GROUP" Type="Model.Store.SAM_GROUP" Multiplicity="0..1" />
+          <End Role="SAM_USER" Type="Model.Store.SAM_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SAM_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SAM_USER">
+              <PropertyRef Name="GROUPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="SAM_CONFIG" EntityType="Model.SAM_CONFIG" />
+          <EntitySet Name="SAM_DATA_C" EntityType="Model.SAM_DATA_C" />
+          <EntitySet Name="SAM_DATA_D" EntityType="Model.SAM_DATA_D" />
+          <EntitySet Name="SAM_DATA_S" EntityType="Model.SAM_DATA_S" />
+          <EntitySet Name="SAM_GROUP" EntityType="Model.SAM_GROUP" />
+          <EntitySet Name="SAM_LOG" EntityType="Model.SAM_LOG" />
+          <EntitySet Name="SAM_PRMS" EntityType="Model.SAM_PRMS" />
+          <EntitySet Name="SAM_USER" EntityType="Model.SAM_USER" />
+          <AssociationSet Name="SAM_USER_FK01" Association="Model.SAM_USER_FK01">
+            <End Role="SAM_GROUP" EntitySet="SAM_GROUP" />
+            <End Role="SAM_USER" EntitySet="SAM_USER" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SAM_CONFIG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LOCATION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SAM_DATA_C">
+          <Key>
+            <PropertyRef Name="DT_UNX" />
+            <PropertyRef Name="ADR_SOURCE" />
+            <PropertyRef Name="ADR_TARGET" />
+          </Key>
+          <Property Name="DT_WIN" Type="DateTime" />
+          <Property Name="DT_UNX" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="ADR_SOURCE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ADR_TARGET" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TRF_TOTAL" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="TRF_DELTA" Type="Decimal" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="SAM_DATA_D">
+          <Key>
+            <PropertyRef Name="DT_UNX" />
+            <PropertyRef Name="ADR_SOURCE" />
+            <PropertyRef Name="ADR_TARGET" />
+          </Key>
+          <Property Name="DT_WIN" Type="DateTime" />
+          <Property Name="DT_UNX" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="ADR_SOURCE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ADR_TARGET" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TRF_TOTAL" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="TRF_DELTA" Type="Decimal" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="SAM_DATA_S">
+          <Key>
+            <PropertyRef Name="DT_UNX" />
+            <PropertyRef Name="ADR_SOURCE" />
+            <PropertyRef Name="ADR_TARGET" />
+          </Key>
+          <Property Name="DT_WIN" Type="DateTime" />
+          <Property Name="DT_UNX" Type="Decimal" Nullable="false" Precision="20" Scale="0" />
+          <Property Name="ADR_SOURCE" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ADR_TARGET" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TRF_TOTAL" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="TRF_DELTA" Type="Decimal" Precision="20" Scale="0" />
+        </EntityType>
+        <EntityType Name="SAM_GROUP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ACTIVE" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SAM_USER" Relationship="Model.SAM_USER_FK01" FromRole="SAM_GROUP" ToRole="SAM_USER" />
+        </EntityType>
+        <EntityType Name="SAM_LOG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DT_PERIOD1" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DT_PERIOD2" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DT_ELAPSED" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SAM_FILENAME" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="COUNT_RAW" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COUNT_PRC" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COUNT_S" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COUNT_C" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COUNT_D" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOG_DATETIME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LOG_USERNAME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="LOG_FULLTEXT" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="STATUS" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SAM_PRMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="VALUE" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SAM_USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FULLNAME" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="PHONE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="GROUPID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ADMIN" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="ACTIVE" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="SAM_GROUP" Relationship="Model.SAM_USER_FK01" FromRole="SAM_USER" ToRole="SAM_GROUP" />
+        </EntityType>
+        <Association Name="SAM_USER_FK01">
+          <End Role="SAM_GROUP" Type="Model.SAM_GROUP" Multiplicity="0..1" />
+          <End Role="SAM_USER" Type="Model.SAM_USER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SAM_GROUP">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SAM_USER">
+              <PropertyRef Name="GROUPID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="SAM_CONFIG">
+            <EntityTypeMapping TypeName="Model.SAM_CONFIG">
+              <MappingFragment StoreEntitySet="SAM_CONFIG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_DATA_C">
+            <EntityTypeMapping TypeName="Model.SAM_DATA_C">
+              <MappingFragment StoreEntitySet="SAM_DATA_C">
+                <ScalarProperty Name="DT_WIN" ColumnName="DT_WIN" />
+                <ScalarProperty Name="DT_UNX" ColumnName="DT_UNX" />
+                <ScalarProperty Name="ADR_SOURCE" ColumnName="ADR_SOURCE" />
+                <ScalarProperty Name="ADR_TARGET" ColumnName="ADR_TARGET" />
+                <ScalarProperty Name="TRF_TOTAL" ColumnName="TRF_TOTAL" />
+                <ScalarProperty Name="TRF_DELTA" ColumnName="TRF_DELTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_DATA_D">
+            <EntityTypeMapping TypeName="Model.SAM_DATA_D">
+              <MappingFragment StoreEntitySet="SAM_DATA_D">
+                <ScalarProperty Name="DT_WIN" ColumnName="DT_WIN" />
+                <ScalarProperty Name="DT_UNX" ColumnName="DT_UNX" />
+                <ScalarProperty Name="ADR_SOURCE" ColumnName="ADR_SOURCE" />
+                <ScalarProperty Name="ADR_TARGET" ColumnName="ADR_TARGET" />
+                <ScalarProperty Name="TRF_TOTAL" ColumnName="TRF_TOTAL" />
+                <ScalarProperty Name="TRF_DELTA" ColumnName="TRF_DELTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_DATA_S">
+            <EntityTypeMapping TypeName="Model.SAM_DATA_S">
+              <MappingFragment StoreEntitySet="SAM_DATA_S">
+                <ScalarProperty Name="DT_WIN" ColumnName="DT_WIN" />
+                <ScalarProperty Name="DT_UNX" ColumnName="DT_UNX" />
+                <ScalarProperty Name="ADR_SOURCE" ColumnName="ADR_SOURCE" />
+                <ScalarProperty Name="ADR_TARGET" ColumnName="ADR_TARGET" />
+                <ScalarProperty Name="TRF_TOTAL" ColumnName="TRF_TOTAL" />
+                <ScalarProperty Name="TRF_DELTA" ColumnName="TRF_DELTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_GROUP">
+            <EntityTypeMapping TypeName="Model.SAM_GROUP">
+              <MappingFragment StoreEntitySet="SAM_GROUP">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_LOG">
+            <EntityTypeMapping TypeName="Model.SAM_LOG">
+              <MappingFragment StoreEntitySet="SAM_LOG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DT_PERIOD1" ColumnName="DT_PERIOD1" />
+                <ScalarProperty Name="DT_PERIOD2" ColumnName="DT_PERIOD2" />
+                <ScalarProperty Name="DT_ELAPSED" ColumnName="DT_ELAPSED" />
+                <ScalarProperty Name="SAM_FILENAME" ColumnName="SAM_FILENAME" />
+                <ScalarProperty Name="COUNT_RAW" ColumnName="COUNT_RAW" />
+                <ScalarProperty Name="COUNT_PRC" ColumnName="COUNT_PRC" />
+                <ScalarProperty Name="COUNT_S" ColumnName="COUNT_S" />
+                <ScalarProperty Name="COUNT_C" ColumnName="COUNT_C" />
+                <ScalarProperty Name="COUNT_D" ColumnName="COUNT_D" />
+                <ScalarProperty Name="LOG_DATETIME" ColumnName="LOG_DATETIME" />
+                <ScalarProperty Name="LOG_USERNAME" ColumnName="LOG_USERNAME" />
+                <ScalarProperty Name="LOG_FULLTEXT" ColumnName="LOG_FULLTEXT" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_PRMS">
+            <EntityTypeMapping TypeName="Model.SAM_PRMS">
+              <MappingFragment StoreEntitySet="SAM_PRMS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SAM_USER">
+            <EntityTypeMapping TypeName="Model.SAM_USER">
+              <MappingFragment StoreEntitySet="SAM_USER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="GROUPID" ColumnName="GROUPID" />
+                <ScalarProperty Name="ADMIN" ColumnName="ADMIN" />
+                <ScalarProperty Name="ACTIVE" ColumnName="ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
