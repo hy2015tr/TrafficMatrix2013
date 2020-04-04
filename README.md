@@ -7,7 +7,7 @@ Analysis and Development Document
 | **Email**      | HasanYildirim\@hotmail.com                      |
 | **Place**      | Umraniye / İSTANBUL                             |
 | **Date**       | 26.May.2014                                     |
-| **Version**    | v1.6                                            |
+| **Version**    | v1.0                                            |
 
 **[1] Purpose of This Software :**
 
@@ -67,7 +67,7 @@ N: number of sample we have used
 
 For more understanding on this I have sited bellow in figure-2 an example:
 
-![](media/7e72b9278c229758cd1227054d3ac636.png) { width=50% }
+![](media/7e72b9278c229758cd1227054d3ac636.png)
 
 We can see a 3, 6 or 12 months forecast period based on the same previous period
 of data in the past.
@@ -104,21 +104,14 @@ type of data and save for 1 year only for now.
 
 **[2] Used Software Technologies and Methods :**
 
-Devlopment Tool : Microsoft Visual Studio 2012 Ultimate
-
-Development Lang : Visual C\# 4.0
-
-NET Framework       : Version 4.0
-
-ORM : MS Entity Framework v5.0
-
-Database : ORACLE 11g Enterprise Edition
-
-Serial Comm. : MS NET Framwork Library
-
-Visual Comps. : DevExpress v12.2.8
-
-FTP Connectivity : Rebex FTP v5.0.0
+        Devlopment IDE      : Microsoft Visual Studio 2012 Ultimate
+        Development Lang    : Visual C# 4.0
+        NET Framework       : Version 4.0
+        ORM                 : MS Entity Framework v5.0
+        Database            : ORACLE 11g Enterprise Edition
+        Serial Comm.        : MS NET Framwork Library
+        Visual Comps.       : DevExpress v12.2.8
+        FTP Connectivity    : Rebex FTP v5.0.0
 
 **Microsoft** software development technologies have been used to develop this
 tool and ORACLE was stand for backend.
@@ -180,121 +173,15 @@ We can see application’s tables as above schema. If need to know what are the
 important db objects in the platform:
 
 -   **SAM_CONFIG :** Keeps all the network device names with location detail.
-
--   **SAM_DATA_C :** Stores traffic data for Critical type. It includes
-    Signalling and Voice.
-
--   **SAM_DATA_D :** Stores traffic data for Data type mainly for internet
-    packages.
-
+-   **SAM_DATA_C :** Stores traffic data for Critical type. It includes Signalling and Voice.
+-   **SAM_DATA_D :** Stores traffic data for Data type mainly for internet packages.
 -   **SAM_DATA_S :** Stores traffic data for Signalling.
-
 -   **SAM_USER :** Stores application user names and passwords.
-
 -   **SAM_GROUP :** Stores user’s group definitions and details.
-
 -   **SAM_LOG :** Stores all runnig and finished process logs.
+-   **SAM_PRMS :** Stores important server addresses, system username and passwords.
 
--   **SAM_PRMS :** Stores important server addresses, system username and
-    passwords.
-
-**[4] Application Config :**
-
-\<?xml version="1.0" encoding="utf-8"?\>
-
-\<configuration\>
-
-\<configSections\>
-
-\<section name="entityFramework"
-type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection,
-EntityFramework, Version=4.4.0.0, Culture=neutral,
-PublicKeyToken=b77a5c561934e089" requirePermission="false" /\>
-
-\</configSections\>
-
-\<system.data\>
-
-\<DbProviderFactories\>
-
-\<remove invariant="Oracle.ManagedDataAccess.Client" /\>
-
-\<add name="ODP.NET, Managed Driver" invariant="Oracle.ManagedDataAccess.Client"
-description="Oracle Data Provider for .NET, Managed Driver"
-type="Oracle.ManagedDataAccess.Client.OracleClientFactory,
-Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral,
-PublicKeyToken=89b483f429c47342" /\>
-
-\</DbProviderFactories\>
-
-\</system.data\>
-
-\<startup\>
-
-\<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /\>
-
-\</startup\>
-
-\<connectionStrings\>
-
-\<add name="Entities"
-connectionString="metadata=res://\*/Model1.csdl\|res://\*/Model1.ssdl\|res://\*/Model1.msl;provider=Oracle.ManagedDataAccess.Client;provider
-connection string=\&quot;data
-source=PROD;password=NHbdr/F1Ydxjs2VAJFJfQU+Jeyf6rZDCCp4iLuHonPc=;persist
-security info=True;user id=NMSWEB\&quot;"
-providerName="System.Data.EntityClient" /\>
-
-\</connectionStrings\>
-
-\<entityFramework\>
-
-\<defaultConnectionFactory
-type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory,
-EntityFramework"\>
-
-\<parameters\>
-
-\<parameter value="v11.0" /\>
-
-\</parameters\>
-
-\</defaultConnectionFactory\>
-
-\</entityFramework\>
-
-\<runtime\>
-
-\<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1"\>
-
-\<dependentAssembly\>
-
-\<assemblyIdentity name="System.Runtime" publicKeyToken="b03f5f7f11d50a3a"
-culture="neutral" /\>
-
-\<bindingRedirect oldVersion="0.0.0.0-2.5.19.0" newVersion="2.5.19.0" /\>
-
-\</dependentAssembly\>
-
-\<dependentAssembly\>
-
-\<assemblyIdentity name="System.Threading.Tasks"
-publicKeyToken="b03f5f7f11d50a3a" culture="neutral" /\>
-
-\<bindingRedirect oldVersion="0.0.0.0-2.5.19.0" newVersion="2.5.19.0" /\>
-
-\</dependentAssembly\>
-
-\</assemblyBinding\>
-
-\</runtime\>
-
-\</configuration\>
-
-Config file is one the important files in the project folder. It tracks cruial
-config settings including database servername, username and encrypted password.
-A special module was developed to read sensitive records from this file.
-
-**[5] Application Interface :**
+**[4] Application Interface :**
 
 The application consists of 5 main secreens as follow:
 
@@ -312,8 +199,7 @@ schedule.
 
 ![cid:image006.jpg\@01CEF5BD.01134FF0](media/2dd933273dc312f790b4fea17d31af49.jpg)
 
-**Reports :** Shows results of runnig processes. User can filter for different
-periods.
+**Reports :** Shows results of runnig processes. User can filter for different periods.
 
 ![cid:image008.jpg\@01CEF5BD.01134FF0](media/cfca2429e9860b85d261232d7be8e87c.jpg)
 
@@ -331,47 +217,37 @@ Update and New Record Window:
 
 ![](media/f3f599fcc82d37e112dd03e854cdc662.png)
 
-**[6] Delta Values:**
+**[5] Delta Values:**
 
 To calculate delta values, the following formule was used:
 
 ![](media/e747a4220e5f347cad4b6d30e434b7c8.jpg)
 
-**Delta Formula =  [ ( Curr. Total - Prev. Total ) / ( Curr.DateTime -
-Prev.DateTime  ) ] \* 8**
+**Delta Formula =  [ ( Curr. Total - Prev. Total ) / ( Curr.DateTime - Prev.DateTime  ) ] \* 8**
 
 **Color Coding For Running Processes  ( Error / Done / Running**
 
 ![cid:image006.jpg\@01CEEC54.6109E710](media/93c09370efbc7fb56d3a4c4de694cb57.jpg)
 
-**[7] System Messages:**
+**[6] System Messages:**
 
 ![cid:image001.png\@01CEE9F8.401BAD80](media/d2e9b5b5e85c9a7dad4cfcd0aef8078a.png)
 
-**[8] Application Setup :**
+**[7] Application Setup :**
 
 **http://10.18.26.183/TrafficMatrix2013/Setup.htm**
 
 ![cid:image002.jpg\@01CEE9F8.401BAD80](media/437f6024ef0611435368271bec409bc9.jpg)
 
-**[9] Application Key Features :**
+**[8] Application Key Features :**
 
 Here is the key feature list of the application:
 
 -   **Call SAM Server and generate Output XML ( Result File )**
-
 -   **Download result XML file to PBN system**
-
 -   **Process File and convert to DataTable ( Raw Data - has everything )**
-
--   **Calculate and summarize raw table with grouping and generate processed
-    data ( 8 Forwarding Class  Single Source )**
-
+-   **Calculate and summarize raw table with grouping and generate processed data ( 8 Forwarding Class Single Source )**
 -   **Transfer processed data to Oracle Table ( avoid double inserts )**
-
 -   **Keep all statistics in a log table**
-
 -   **Develop a Schedule Engine to have automated run system**
-
--   **Move all cruial settings into parameter table to make configurition
-    friendly**
+-   **Move all cruial settings into parameter table to make configurition friendly**
