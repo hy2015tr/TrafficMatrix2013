@@ -9,7 +9,7 @@ Analysis and Development Document
 | **Date**       | 26.May.2014                                     |
 | **Version**    | v1.0                                            |
 
-**[1] Purpose of This Software :**
+## [1] Purpose of This Software :
 
 This software will be providing the users the required tool to have AVEA PBN
 Data Matrix and Analysis for all the different type of data available (Data,
@@ -102,7 +102,7 @@ unfortunately since the storing the raw data for 3 years will require a huge
 system and would coste a lot, a decision has been made to go with the condense
 type of data and save for 1 year only for now.
 
-**[2] Used Software Technologies and Methods :**
+## [2] Used Software Technologies and Methods :
 
         Devlopment IDE      : Microsoft Visual Studio 2012 Ultimate
         Development Lang    : Visual C# 4.0
@@ -148,7 +148,7 @@ ORACLE Enterpise Server to store captured data.
 is an object-relational database management system produced and marketed by
 Oracle Corporation.
 
-**[3] Data Model :**
+## [3] Data Model :
 
 **Microsoft Entity Framework** used for data operations with LINQ language.
 Developing single data access layer makes application easy to manage and clear
@@ -181,7 +181,7 @@ important db objects in the platform:
 -   **SAM_LOG :** Stores all runnig and finished process logs.
 -   **SAM_PRMS :** Stores important server addresses, system username and passwords.
 
-**[4] Application Interface :**
+## [4] Application Interface :
 
 The application consists of 5 main secreens as follow:
 
@@ -217,7 +217,7 @@ Update and New Record Window:
 
 ![](media/f3f599fcc82d37e112dd03e854cdc662.png)
 
-**[5] Delta Values:**
+## [5] Delta Values:
 
 To calculate delta values, the following formule was used:
 
@@ -229,17 +229,17 @@ To calculate delta values, the following formule was used:
 
 ![cid:image006.jpg\@01CEEC54.6109E710](media/93c09370efbc7fb56d3a4c4de694cb57.jpg)
 
-**[6] System Messages:**
+## [6] System Messages:
 
 ![cid:image001.png\@01CEE9F8.401BAD80](media/d2e9b5b5e85c9a7dad4cfcd0aef8078a.png)
 
-**[7] Application Setup :**
+## [7] Application Setup :
 
 **http://10.18.26.183/TrafficMatrix2013/Setup.htm**
 
 ![cid:image002.jpg\@01CEE9F8.401BAD80](media/437f6024ef0611435368271bec409bc9.jpg)
 
-**[8] Application Key Features :**
+## [8] Application Key Features :
 
 Here is the key feature list of the application:
 
